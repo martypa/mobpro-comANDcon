@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HttpDemosActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="?attr/colorError"
+            android:textSize="18sp"
+            android:text="HTTP Inhalt" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickPictureLoad"
+            android:text="Lade Binäre Daten (Bild)" />
+
+        <ImageView
+            android:id="@+id/httpPicture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickTextLoad"
+            android:text="Lade Dokument (Text)" />
+
+        <TextView
+            android:id="@+id/httpText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hier steht das geladene Dokument" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="?attr/colorError"
+            android:text="HTTP Webservices"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickJson"
+            android:text="JSON Webservice aufrufen" />
+
+        <TextView
+            android:id="@+id/jsonText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="JsonText" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
