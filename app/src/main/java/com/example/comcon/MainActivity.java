@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         context = this;
     }
 
+    //Button Listeners
     public void onClickHttpServerCommunication(final View Btn){
         Intent intent = new Intent(this, HttpDemosActivity.class);
         startActivity(intent);
@@ -52,6 +53,14 @@ public class MainActivity extends AppCompatActivity {
         thread.start();
     }
 
+    public void onClickThreadUIFreez(View Btn){
+        try {
+            Thread.sleep(7000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void onCLickMultiAsyncTask(View Btn) {
         MultiAsyncTask multiAsyncTask = new MultiAsyncTask();
         URL[] urls = new URL[5];
@@ -69,6 +78,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void onClickStartDemoTask(View Btn){
+       new AsyncTaskDemo().execute(12,33,55,77);
+    }
+
+
+    //Tasks
     public class MultiAsyncTask extends AsyncTask<URL, String, Void> {
 
         private String[] allMovies = new String[10];
@@ -123,6 +138,35 @@ public class MainActivity extends AppCompatActivity {
             dialog.show();
         }
 
+    }
+
+    public class AsyncTaskDemo extends AsyncTask<Integer, Void, String>{
+
+        @Override
+        protected String doInBackground(Integer... integers) {
+            try {
+                Thread.sleep(7000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("Resultat = Die Parameter waren: ");
+            for (Integer i:integers) {
+                stringBuilder.append(i);
+                stringBuilder.append(",");
+            }
+            return stringBuilder.toString();
+        }
+
+        @Override
+        protected void onPostExecute(String result){
+            Context context = getApplicationContext();
+            CharSequence text = result;
+            int duration = Toast.LENGTH_LONG;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
     }
 
 

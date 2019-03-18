@@ -38,6 +38,8 @@ public class HttpDemosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_http_demos);
     }
 
+
+    //Button Listeners
     public void onClickPictureLoad(View view){
         try {
             URL url = new URL("http://10.0.2.2:80/hslu/homer.jpg");
@@ -56,11 +58,12 @@ public class HttpDemosActivity extends AppCompatActivity {
     }
 
 
+    //Tasks
     private class HttpPictureTask extends AsyncTask<URL,Void, Bitmap>{
 
         @Override
         protected Bitmap doInBackground(URL... urls) {
-            Request request = new Request.Builder().url("http://10.0.2.2:80/hslu/homer.jpg").build();
+            Request request = new Request.Builder().url("http://10.0.2.2:6666/hslu/homer.jpg").build();
             okhttp3.Response response = null;
             try {
                 response = client.newCall(request).execute();
@@ -85,12 +88,11 @@ public class HttpDemosActivity extends AppCompatActivity {
 
     }
 
-
     private class HttpTextTask extends AsyncTask<Void, Void, String>{
 
         @Override
         protected String doInBackground(Void... voids) {
-            Request request = new Request.Builder().url("http://10.0.2.2:80/hslu/test.txt").build();
+            Request request = new Request.Builder().url("http://10.0.2.2:6666/hslu/test.txt").build();
             okhttp3.Response response= null;
             try {
                 response = client.newCall(request).execute();
